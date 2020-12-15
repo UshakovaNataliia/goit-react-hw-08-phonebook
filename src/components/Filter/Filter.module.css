@@ -1,0 +1,14 @@
+.label {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+.input {
+  margin-top: 5px;
+  padding: 4px;
+  width: 300px;
+  border-radius: 5px;
+  background-color: transparent;
+  color: white;
+}

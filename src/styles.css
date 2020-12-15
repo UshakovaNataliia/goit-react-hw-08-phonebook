@@ -1,0 +1,11 @@
+body {
+  background-image: url(./phone.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 30px;
+}
+#root {
+  box-shadow: 10px 10px 18px -4px rgba(0, 0, 0, 0.68);
+  background-color: rgba(77, 74, 77, 0.7);
+  padding: 30px;
+}
