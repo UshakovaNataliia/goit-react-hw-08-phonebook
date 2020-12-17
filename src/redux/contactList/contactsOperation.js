@@ -11,8 +11,6 @@ import {
     deleteContactError
 } from './contactListActions';
 
-axios.defaults.baseURL = 'http://localhost:2000';
-
 export const addContactItem = contact => dispatch => {
     dispatch(addContactRequest());
     axios.post('/contacts', { ...contact })

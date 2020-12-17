@@ -1,0 +1,35 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  text-align: center;
+  padding-top: 30px;
+}
+
+.label {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+.input {
+  padding: 4px;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 3px solid transparent;
+}
+
+.button {
+  color: white;
+  width: 140px;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 10px;
+  font-size: 14px;
+  background-color: rgba(248, 37, 9, 0.733);
+  border-radius: 3px;
+  height: 30px;
+  border-color: transparent;
+}
