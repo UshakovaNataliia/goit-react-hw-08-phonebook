@@ -14,18 +14,17 @@ import {
     getCurrentUserError
 } from './authActions';
 
+axios.defaults.baseURL = 'https://goit-phonebook-api.herokuapp.com';
+
 const setToken = token =>
   (axios.defaults.headers.common.Authorization = `Bearer ${token}`);
 
 const clearToken = () => (axios.defaults.headers.common.Authorization = '');
 
-axios.defaults.baseURL = 'https://goit-phonebook-api.herokuapp.com';
-
 export const register = items => dispatch => {
     dispatch(registerRequest());
     axios.post('/users/signup', items)
         .then(({ data }) => {
-            // console.log(data);
             dispatch(registerSuccess(data));
             setToken(data.token);
         })
@@ -36,15 +35,15 @@ export const logIn = user => dispatch => {
     dispatch(logInRequest());
     axios.post('/users/login', user)
     .then(({ data }) => {
-        dispatch(logInSuccess(data))
         setToken(data.token);
+        dispatch(logInSuccess(data));
     }).catch(error => dispatch(logInError(error)))
 };
 
 export const logOut = () => dispatch => {
     dispatch(logOutRequest());
     axios.post('/users/logout')
-        .then(({ data }) => {
+        .then(response => {
             clearToken();
             dispatch(logOutSuccess());
         })
@@ -52,9 +51,7 @@ export const logOut = () => dispatch => {
 };
 
 export const getUser = () => (dispatch, getState) => {
-    const {
-        auth: { token: localToken },
-    } = getState();
+    const {auth: { token: localToken }} = getState();
     if (localToken === '') return;
     setToken(localToken);
     dispatch(getCurrentUserRequest());

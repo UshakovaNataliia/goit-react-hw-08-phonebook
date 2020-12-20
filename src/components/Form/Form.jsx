@@ -27,12 +27,11 @@ class Form extends Component {
       this.setState({ alert: true });
       setTimeout(() => {
         this.setState({ alert: false });
-    this.setState({ name: '', number: '' });
-
+        this.setState({ name: '', number: '' });
       }, 3000);
     } else {
-    this.props.onSubmit(this.state); // прокинули пропсы для передачи данных в App
-    this.setState({ name: '', number: '' });
+        this.props.onSubmit(this.state); // прокинули пропсы для передачи данных в App
+        this.setState({ name: '', number: '' });
     };
   };
 

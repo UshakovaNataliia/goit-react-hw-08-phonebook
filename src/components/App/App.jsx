@@ -2,14 +2,14 @@ import { Switch } from 'react-router-dom';
 import React, { Component, Suspense, lazy } from 'react';
 import { connect } from 'react-redux';
 import Header from '../Header/Header';
-import routes from '../../routes';
+import {routes} from '../../routes';
 import {getUser} from '../../redux/auth/authOperations';
 import PrivateRoute from '../../redux/auth/PrivateRoute';
 import PublicRoute from '../../redux/auth/PublicRoute';
 import FirstRoute from '../../redux/auth/FirstRoute';
 import {Error} from '../Error/Error';
 import {clearError} from '../../redux/auth/authActions';
-import authSelectors from '../../redux/auth/authSelectors';
+import {isAuth} from '../../redux/auth/authSelectors';
 
 const ContactsListView = lazy(() =>
   import('../../redux/views/ContactsListView' /* webpackChunkName: "contact-view" */),
@@ -59,7 +59,7 @@ class App extends Component {
 }
 const mapStateToProps = state => ({
   error: state.auth.error,
-  token: authSelectors.isAuth(state),
+  token: isAuth(state),
 });
 
 const mapDispatchToProps = {

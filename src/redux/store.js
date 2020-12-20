@@ -19,8 +19,6 @@ const contactsReducer = combineReducers({
         filter,
 });
 
-// const DefaultMiddleware = getDefaultMiddleware();
-
 const authPersistConfig = {
   key: 'auth',
   storage,

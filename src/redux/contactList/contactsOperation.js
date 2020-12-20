@@ -14,9 +14,7 @@ import {
 export const addContactItem = contact => dispatch => {
     dispatch(addContactRequest());
     axios.post('/contacts', { ...contact })
-        .then(({data}) => {
-            dispatch(addContactSuccess(data))
-        })
+        .then(({data}) => dispatch(addContactSuccess(data)))
         .catch(error => dispatch(addContactError(error)));
 };
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import authSelectors from '../auth/authSelectors';
+import {isAuth} from '../auth/authSelectors';
 
 const FirstRoute = ({ component: Component, isAuth, ...routeProps }) => (
   <Route
@@ -13,7 +13,7 @@ const FirstRoute = ({ component: Component, isAuth, ...routeProps }) => (
 );
 
 const mapStateToProps = state => ({
-  isAuth: authSelectors.isAuth(state),
+  isAuth: isAuth(state),
 });
 
 export default connect(mapStateToProps)(FirstRoute);

@@ -1,7 +1,5 @@
-  
-export default {
+export const routes =  {
   register: '/register',
   login: '/login',
-//   notfound: '/notfound',
   contacts: '/contacts',
 };

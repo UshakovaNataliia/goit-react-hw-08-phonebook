@@ -3,7 +3,7 @@ import { RegisterLink } from '../Header/RegisterLink';
 import Menu from './Menu';
 import styles from './Header.module.css';
 import { connect } from 'react-redux';
-import authSelectors from '../../redux/auth/authSelectors';
+import {isAuth, name} from '../../redux/auth/authSelectors';
 
 class Header extends Component {
   render() {
@@ -15,8 +15,8 @@ class Header extends Component {
   }
 }
 const mapStateToProps = state => ({
-  isAuth: authSelectors.isAuth(state),
-  name: authSelectors.name(state),
+  isAuth: isAuth(state),
+  name: name(state),
 });
 
 export default connect(mapStateToProps)(Header);
